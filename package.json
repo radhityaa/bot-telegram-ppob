@@ -1,0 +1,19 @@
+{
+  "name": "bot-telegram-ppob",
+  "version": "1.0.0",
+  "description": "Bot Telegram PPOB",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/main.js"
+  },
+  "author": "PT Ayasya Tech Indonesia",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.7",
+    "telegraf": "^4.16.3"
+  }
+}
