@@ -54,7 +54,7 @@ bot.command('daftar', (ctx) => {
 })
 
 bot.command('saldo', async (ctx) => {
-    const isRegister = await checkUserRegister(userId)
+    const isRegister = await checkUserRegister(ctx.from.id)
 
     if (!isRegister) {
         ctx.reply('Maaf, Anda belum terdaftar. Silakan ketik perintah berikut untuk mendaftar:\n\n/daftar', {
