@@ -54,6 +54,14 @@ bot.command('daftar', (ctx) => {
 })
 
 bot.command('saldo', async (ctx) => {
+    const isRegister = await checkUserRegister(userId)
+
+    if (!isRegister) {
+        ctx.reply('Maaf, Anda belum terdaftar. Silakan ketik perintah berikut untuk mendaftar:\n\n/daftar', {
+            reply_to_message_id: messageId,
+        })
+    }
+
     try {
         const { data } = await axios.post('/users/saldo', { user_tel_id: ctx.from.id })
         ctx.reply(`Sisa saldo anda: ${data.data}`)
@@ -65,7 +73,7 @@ bot.command('saldo', async (ctx) => {
     }
 })
 
-bot.command('cek_user', (ctx) => {
+bot.command('cek_user', async (ctx) => {
     ctx.reply(`User ID: ${ctx.from.id}`, {
         reply_to_message_id: ctx.message.message_id
     })
