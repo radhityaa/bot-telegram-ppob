@@ -58,13 +58,15 @@ bot.command('saldo', async (ctx) => {
 
     if (!isRegister) {
         ctx.reply('Maaf, Anda belum terdaftar. Silakan ketik perintah berikut untuk mendaftar:\n\n/daftar', {
-            reply_to_message_id: messageId,
+            reply_to_message_id: ctx.message.message_id,
         })
     }
 
     try {
         const { data } = await axios.post('/users/saldo', { user_tel_id: ctx.from.id })
-        ctx.reply(`Sisa saldo anda: ${data.data}`)
+        ctx.reply(`Sisa saldo anda: ${data.data}`, {
+            reply_to_message_id: ctx.message.message_id,
+        })
     } catch (error) {
         console.log(error)
         ctx.reply('Terjadi Kesalahan Server, Coba Ulangi.', {
