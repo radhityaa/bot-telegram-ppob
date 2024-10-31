@@ -36,13 +36,13 @@ bot.telegram.setMyCommands([
 ])
 
 bot.start((ctx) => {
-    ctx.reply('Selamat datang di AyasyaTech PPOB!\n\n- Format Pendaftaran: /daftar\n- Format Transaksi: KODE_PRODUK#nomor_tujuan\n- Format Deposit: DEPOSIT#nominal\n- Format Cek Status: STATUS#nomor_tujuan\n\n- Cek Saldo: /saldo\n- User Token: /user_token\n\n- Riwayat Deposit: Akan Hadir \n- Riwayat Transaksi: Akan Hadir\n- Daftar Harga dan Kode: https://shorturl.at/I3DYE\n- Grup Chat: https://t.me/+xn05VilELsdlNTc9\n- Channel Informasi: https://t.me/atippob', {
+    ctx.reply('Selamat datang di AyasyaTech PPOB!\n\n- Format Pendaftaran: /daftar\n- Format Transaksi: KODE#nomor_tujuan\n- Format Deposit: DEPOSIT#nominal\n- Format Cek Status: STATUS#nomor_tujuan\n\n- Cek Saldo: /saldo\n- User Token: /user_token\n\n- Riwayat Deposit: Akan Hadir \n\nRiwayat Transaksi: \n- Prabayar: https://shorturl.at/4gEBk\n- Pascabayar: Akan Hadir\n\nDaftar Harga dan Kode: \n- Prabayar: https://shorturl.at/PwqmB\n- Pascabayar: Akan Datang\n\n- Grup Chat: https://t.me/+xn05VilELsdlNTc9\n- Channel Informasi: https://t.me/atippob', {
         reply_to_message_id: ctx.message.message_id
     })
 })
 
 bot.command('help', (ctx) => {
-    ctx.reply('- Format Pendaftaran: /daftar\n- Format Transaksi: code#nomor_tujuan\n- Format Deposit: DEPOSIT#nominal\n- Format Cek Status: STATUS#nomor_tujuan\n\n- Cek Saldo: /saldo\n- User Token: /user_token\n\n- Riwayat Deposit: Akan Hadir \n- Riwayat Transaksi: Akan Hadir\n- Daftar Harga dan Kode: https://shorturl.at/I3DYE\n- Grup Chat: https://t.me/+xn05VilELsdlNTc9\n- Channel Informasi: https://t.me/atippob', {
+    ctx.reply('- Format Pendaftaran: /daftar\n- Format Transaksi: KODE#nomor_tujuan\n- Format Deposit: DEPOSIT#nominal\n- Format Cek Status: STATUS#nomor_tujuan\n\n- Cek Saldo: /saldo\n- User Token: /user_token\n\n- Riwayat Deposit: Akan Hadir \n\nRiwayat Transaksi: \n- Prabayar: https://shorturl.at/4gEBk\n- Pascabayar: Akan Hadir\n\nDaftar Harga dan Kode: \n- Prabayar: https://shorturl.at/PwqmB\n- Pascabayar: Akan Datang\n\n- Grup Chat: https://t.me/+xn05VilELsdlNTc9\n- Channel Informasi: https://t.me/atippob', {
         reply_to_message_id: ctx.message.message_id
     })
 })
