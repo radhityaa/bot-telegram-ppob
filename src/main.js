@@ -29,20 +29,20 @@ async function checkUserRegister(userId) {
 bot.telegram.setMyCommands([
     { command: 'start', description: "Mulai Transaksi" },
     { command: 'help', description: "Bantuan Penggunaan" },
-    { command: 'cek_user', description: "Cek User ID" },
+    { command: 'user_token', description: "User Token" },
     { command: 'daftar_harga', description: "Daftar Harga" },
     { command: 'group_chat', description: "Grup Chat" },
     { command: 'channel', description: "Channel Informasi" },
 ])
 
 bot.start((ctx) => {
-    ctx.reply('Selamat datang di AyasyaTech PPOB!\n\n- Format Pendaftaran: /daftar\n- Format Transaksi: code#nomor_tujuan\n- Format Deposit: DEPOSIT#nominal\n- Format Cek Status: STATUS#nomor_tujuan\n\n- Cek Saldo: /saldo\n- Cek User ID: /cek_user\n\n- Riwayat Deposit: Akan Hadir \n- Riwayat Transaksi: Akan Hadir\n- Daftar Harga dan Kode: https://shorturl.at/eh59a\n- Grup Chat: https://t.me/+xn05VilELsdlNTc9\n- Channel Informasi: https://t.me/atippob', {
+    ctx.reply('Selamat datang di AyasyaTech PPOB!\n\n- Format Pendaftaran: /daftar\n- Format Transaksi: KODE_PRODUK#nomor_tujuan\n- Format Deposit: DEPOSIT#nominal\n- Format Cek Status: STATUS#nomor_tujuan\n\n- Cek Saldo: /saldo\n- User Token: /user_token\n\n- Riwayat Deposit: Akan Hadir \n- Riwayat Transaksi: Akan Hadir\n- Daftar Harga dan Kode: https://shorturl.at/I3DYE\n- Grup Chat: https://t.me/+xn05VilELsdlNTc9\n- Channel Informasi: https://t.me/atippob', {
         reply_to_message_id: ctx.message.message_id
     })
 })
 
 bot.command('help', (ctx) => {
-    ctx.reply('- Format Pendaftaran: /daftar\n- Format Transaksi: code#nomor_tujuan\n- Format Deposit: DEPOSIT#nominal\n- Format Cek Status: STATUS#nomor_tujuan\n\n- Cek Saldo: /saldo\n- Cek User ID: /cek_user\n\n- Riwayat Deposit: Akan Hadir \n- Riwayat Transaksi: Akan Hadir\n- Daftar Harga dan Kode: https://shorturl.at/eh59a\n- Grup Chat: https://t.me/+xn05VilELsdlNTc9\n- Channel Informasi: https://t.me/atippob', {
+    ctx.reply('- Format Pendaftaran: /daftar\n- Format Transaksi: code#nomor_tujuan\n- Format Deposit: DEPOSIT#nominal\n- Format Cek Status: STATUS#nomor_tujuan\n\n- Cek Saldo: /saldo\n- User Token: /user_token\n\n- Riwayat Deposit: Akan Hadir \n- Riwayat Transaksi: Akan Hadir\n- Daftar Harga dan Kode: https://shorturl.at/I3DYE\n- Grup Chat: https://t.me/+xn05VilELsdlNTc9\n- Channel Informasi: https://t.me/atippob', {
         reply_to_message_id: ctx.message.message_id
     })
 })
@@ -75,10 +75,18 @@ bot.command('saldo', async (ctx) => {
     }
 })
 
-bot.command('cek_user', async (ctx) => {
-    ctx.reply(`User ID: ${ctx.from.id}`, {
-        reply_to_message_id: ctx.message.message_id
-    })
+bot.command('user_token', async (ctx) => {
+    try {
+        const { data } = await axios.post('/users/check-token', { user_tel_id: ctx.from.id })
+        ctx.reply(data.data, {
+            reply_to_message_id: ctx.message.message_id,
+        })
+    } catch (error) {
+        console.log(error)
+        ctx.reply('Terjadi Kesalahan Server, Coba Ulangi.', {
+            reply_to_message_id: ctx.message.message_id,
+        })
+    }
 })
 
 bot.on('text', async (ctx) => {
