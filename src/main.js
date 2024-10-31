@@ -36,7 +36,7 @@ bot.telegram.setMyCommands([
 ])
 
 bot.start((ctx) => {
-    ctx.reply('Selamat datang di AyasyaTech PPOB! Silakan ketik /help untuk mendapatkan bantuan.', {
+    ctx.reply('Selamat datang di AyasyaTech PPOB!\n\n- Format Pendaftaran: /daftar\n- Format Transaksi: code#nomor_tujuan\n- Format Deposit: DEPOSIT#nominal\n- Format Cek Status: STATUS#nomor_tujuan\n\n- Cek Saldo: /saldo\n- Cek User ID: /cek_user\n\n- Riwayat Deposit: Akan Hadir \n- Riwayat Transaksi: Akan Hadir\n- Daftar Harga dan Kode: https://shorturl.at/eh59a\n- Grup Chat: https://t.me/+xn05VilELsdlNTc9\n- Channel Informasi: https://t.me/atippob', {
         reply_to_message_id: ctx.message.message_id
     })
 })
