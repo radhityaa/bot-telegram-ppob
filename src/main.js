@@ -204,7 +204,7 @@ bot.on('text', async (ctx) => {
                     return
                 }
 
-                ctx.reply(`Transaksi berhasil!\n\n- Invoice: ${data.data.invoice}\n- Produk: ${data.data.product_name}\n- Nomor Tujuan: ${target}\n- Harga: Rp.${data.data.price}\n- Keterangan: ${data.data.message}\n- SN: ${data.data.sn}\n- Status: ${data.data.status}\n\nSisa Saldo: Rp.${data.data.saldo}\n\nTerima Kasih.`, {
+                ctx.reply(`Transaksi ${data.data.status}!\n\n- Invoice: ${data.data.invoice}\n- Produk: ${data.data.product_name}\n- Nomor Tujuan: ${target}\n- Harga: Rp.${data.data.price}\n- Keterangan: ${data.data.message}\n- SN: ${data.data.sn}\n- Status: ${data.data.status}\n\nSisa Saldo: Rp.${data.data.saldo}\n\nTerima Kasih.`, {
                     reply_to_message_id: messageId,
                 })
             } catch (error) {
