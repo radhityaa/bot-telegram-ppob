@@ -23,7 +23,7 @@ async function checkUserRegister(userId) {
     } catch (error) {
         console.error('Error checking user registration:', error)
         return false
-    } Z
+    }
 }
 
 bot.telegram.setMyCommands([
